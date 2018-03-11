@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyD_k3HMBqaJCf0VqJJYaT8RXf4BiPI8SMg" type="text/javascript"></script>
+	 <script>
+      function load() {
+        var myLatLng = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: myLatLng
+        });
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World'
+        });
+      }
+    </script>
+</head>
+<body onload="load()" unload='GUnload()'>
+	<div id="map" style="width: 500px; height: 300px"></div>
+</body>
+</html>

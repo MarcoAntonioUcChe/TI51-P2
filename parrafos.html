@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		function obtener(){
+			var x=document.getElementsByTagName("p");
+			
+		/*	for(var i=0;i< x.length;i++){
+				var parrafo=x[i];
+				console.log(x[i]);
+			}*/
+			for(var i=x.length-1; i>=0;i--){
+				console.log(x[i]);
+			}
+		}
+	</script>
+</head>
+<body onload="obtener()">
+	<p>De este modo se puede obtener el primer nparrafo de la página de la sigiente manera</p>
+	<p>var primerParrafo=parrafo[0]]; <br>
+		De la misma forma, se podra recorrer todos los párrafos de  la pahina con el siguiente código:</p>
+
+	<p>for(var i=0;i< parrafos.length;i++){ <br>
+		var parrafo=parrafors[i]; <br>
+	}
+	</p>
+</body>
+</html>

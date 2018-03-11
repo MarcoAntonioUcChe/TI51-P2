@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		function obtenerPosicion(e){
+			x=e.clientX;
+			y=e.clientY;
+			cursor="El cursor del mouse esta: "+x+" y "+y;
+			document.getElementById("displayArea").innerHTML=cursor;
+		}
+		function detener(){
+			document.getElementById("displayArea").innerHTML="";
+		}
+	</script>
+</head>
+<body>
+	<div id="focusArea" onmousemove="obtenerPosicion(event)" onmouseout="detener()">
+		<p >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore explicabo debitis ab obcaecati dolor modi laudantium at ratione, repudiandae facere, eos molestiae aliquam nam aperiam vero consequuntur officiis maiores accusantium!</p>
+	</div>
+	<div id="displayArea"></div>
+
+	<div style="width: 255px; height: 255px; border-color: red;">
+		
+	</div>
+</body>
+</html>
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		function obtenerPosicion(e){
+			x=e.clientX;
+			y=e.clientY;
+			cursor="El cursor del mouse esta: "+x+" y "+y;
+			document.getElementById("displayArea").innerHTML=cursor;
+		}
+		function detener(){
+			document.getElementById("displayArea").innerHTML="";
+		}
+	</script>
+</head>
+<body>
+	<div id="focusArea" onmousemove="obtenerPosicion(event)" onmouseout="detener()">
+		<p >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore explicabo debitis ab obcaecati dolor modi laudantium at ratione, repudiandae facere, eos molestiae aliquam nam aperiam vero consequuntur officiis maiores accusantium!</p>
+	</div>
+	<div id="displayArea"></div>
+</body>
+</html>-->

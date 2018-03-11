@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+</head>
+	<script>
+		function crear(){
+			var Locations= Array();
+			var x = document.getElementsByTagName('td');
+			for(var i =0;i<10;i++ ){
+				deportivo ={"deportivo" : x[i].parentNode.childNodes[0].value,"latitud" : x[i+1].parentNode.childNodes[0].value,"longitud" : x[i+2].parentNode.childNodes[0].value };
+				
+				Locations.push(deportivo);
+				
+				
+			}
+			Locations={"deportivos":Locations}
+			Locations=JSON.stringify(Locations);
+			console.log(Locations);
+			document.getElementById('div').innerHTML=Locations;
+		}
+	</script>
+
+	
+<body>
+	<table>
+		<tr><th>Deportivo</th> 					<th>Longuitud</th> 					<th>Longuitud</th></tr>
+		<tr><td><input type="text"></td>    <td><input type="text"></td>     <td><input type="text"></td></tr>
+		<tr><td><input type="text"></td>    <td><input type="text"></td>     <td><input type="text"></td></tr>
+		<tr><td><input type="text"></td>    <td><input type="text"></td>     <td><input type="text"></td></tr>
+		<tr><td><input type="text"></td>    <td><input type="text"></td>     <td><input type="text"></td></tr>
+		<tr><td><input type="text"></td>    <td><input type="text"></td>     <td><input type="text"></td></tr>
+		<tr><td><input type="text"></td>    <td><input type="text"></td>     <td><input type="text"></td></tr>
+		<tr><td><input type="text"></td>    <td><input type="text"></td>     <td><input type="text"></td></tr>
+		<tr><td><input type="text"></td>    <td><input type="text"></td>     <td><input type="text"></td></tr>
+		<tr><td><input type="text"></td>    <td><input type="text"></td>     <td><input type="text"></td></tr>
+		<tr><td><input type="text"></td>    <td><input type="text"></td>     <td><input type="text"></td></tr>
+	</table>
+	<button onClick="crear();">Crear JSON</button>
+	<div id="div"></div>
+</body>
+</html>

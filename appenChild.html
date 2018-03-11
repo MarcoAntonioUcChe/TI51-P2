@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		function crear(){
+			var parrafo=document.createElement("p");
+			var contenido=document.createTextNode("Hola mundo!");
+			parrafo.appendChild(contenido);
+			document.body.appendChild(parrafo);
+		}
+
+		function eliminar(){
+			var parrafo=document.getElementById("provisional");
+			parrafo.parentNode.removeChild(parrafo);
+		}
+	</script>
+</head>
+<body onload="crear()">
+	<button onclick="eliminar()">Eliminar nodo</button>
+	<p id="provisional"></p>
+</body>
+</html>

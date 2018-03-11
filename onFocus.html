@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>
+		Ejemplo onFocus
+	</title>
+	<script>
+		function efecto(id){
+			var elem=document.getElementById(id).parentElement;
+			elem.setAttribute("class","effect campo");
+		}
+	</script>
+	<style>
+		.campo{
+			border: 1px solid #FFF;
+			padding: 5px 10px;
+			-o-transition:color .2s ease-out, background ls ease-in;
+			-ms-transition:color .2s ease-out, background ls ease-in;
+			-moz-transition:color .2s ease-out, background ls ease-in;
+			-webkit-transition:color .2s ease-out, background ls ease-in;
+
+			transition: color .2s ease-out,background ls ease-in;
+		}
+		.effect{
+			color: white; background:red;border-color: cadetblue;border-style: dashed;
+		}
+		.effect label{
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<form name="form1">
+		<div class="campo">
+			<label for="txtName">Nombre:</label>
+			<input name="txtName" type="text" id="txt_1" onfocus="efecto(this.id)">
+		</div>
+		<div class="campo">
+			<label for="txtName">Nombre:</label>
+			<input name="txtName" type="text" id="txt_2" onfocus="efecto(this.id)">
+		</div>
+	</form>
+</body>
+</html>

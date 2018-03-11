@@ -1,0 +1,21 @@
+<html lang="es">
+<script>
+function tamano() {
+	var Height = window.outerHeight;
+	//var Height = document.body.clientHeigth;
+    var Width = window.outerWidth;
+    
+    var textoalto = "Alto de la ventana:" + Height;
+    var textolargo = "largo de la ventana:" + Width ;
+    document.getElementById("Height").innerHTML = textoalto;
+    document.getElementById("Width").innerHTML = textolargo;
+}
+</script>
+
+<body onresize="tamano()">
+
+<p id="Height"></p>
+<p id="Width"></p>
+
+</body>
+</html>

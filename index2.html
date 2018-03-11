@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Formulario</title>
+	<style>
+					div{
+			text-align-last: left;
+			width: 300px;
+		}
+
+		label input{
+			width: 280px;
+		}
+
+		label label{
+			color: grey;
+		}
+	</style>
+	<script>
+			function Nombre(e){
+				var letra= window.Event ? e.which: e.keyCode;
+				var texto= document.getElementById("txt");
+				texto.innerHTML="Key: "+event.which;
+				return ((letra>=97 && letra<=122) || (letra>=65 && letra<=90) || (letra==32))
+			}
+
+			function Telefono(e){
+				var letra= window.Event ? e.which: e.keyCode;
+				var texto= document.getElementById("txt");
+				texto.innerHTML="Key: "+event.which;
+				return ((letra>=48 && letra<=57)||(letra>=40 && letra<=41))
+			}
+
+			function Fecha(e){
+				var letra= window.Event ? e.which: e.keyCode;
+				var texto= document.getElementById("txt");
+				texto.innerHTML="Key: "+event.which;
+				return ((letra>=48 && letra<=57)||(letra==47))
+			}
+
+			function Altura(e){
+				var letra= window.Event ? e.which: e.keyCode;
+				var texto= document.getElementById("txt");
+				texto.innerHTML="Key: "+event.which;
+
+				var altura = document.getElementById('altura_id').value;
+				console.log(altura);
+				var arrayAltura = altura.split('.')
+
+				if (altura.indexOf(".") != -1) {
+					if (arrayAltura[1].length<1) {
+						return (letra>=48 && letra<=57)
+					} else {
+						return (letra==0)
+					}
+				} else {
+					return (letra>=48 && letra<=57 || letra==46)
+				}
+				
+			}
+
+
+	</script>
+</head>
+<body>
+	<h2>Formulario</h2>
+	<div>
+		<label>Nombre: 
+			<br><input type="text" name="nombre" value="" id="nombre_id" onkeypress="return soloTextos(event)">
+		</label>
+		<br>
+		<label>Teléfono:</label> 
+			<br><input type="text" name="telefono" value="" id="numero_id" onkeypress="return soloNumeros(event)">
+		</label>
+		<br>
+		<label>Fecha de nacimiento (dd-mm-aaaa): 
+			<input type="text" name="fecha" id="fecha_id" onkeypress="return soloFecha(event)">
+		</label>
+		<br>
+		<label>Altura(m): 
+			<br><input type="text" name="altura" value="" id="altura_id" onkeypress="return soloUnaDecimal(event)">
+		</label>
+		<br>
+		<input type="button" name="enviar" value="enviar">
+	</div>
+	<div id="txt"></div>
+</body>
+</html>

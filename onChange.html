@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>
+	</title>
+	<script>
+		function cambiarColor(id){
+			var color=document.getElementById(id).value;
+			var form=document.getElementById("form1");
+			form.style.backgroundColor=color;
+		}
+	</script>
+	<style>
+		.campo{
+			border: 1px solid #FFF;
+			padding: 5px 10px;
+			-o-transition:color .2s ease-out, background ls ease-in;
+			-ms-transition:color .2s ease-out, background ls ease-in;
+			-moz-transition:color .2s ease-out, background ls ease-in;
+			-webkit-transition:color .2s ease-out, background ls ease-in;
+
+			transition: color .2s ease-out,background ls ease-in;
+		}
+		.effect{
+			color: white; background:red;border-color: cadetblue;border-style: dashed;
+		}
+		.effect label{
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<form name="form1" class="campo" id="form1">
+		<select name="envio" id="tipoEnvio" onchange="cambiarColor(this.id)">
+			<option value="#FFFFFF" selected>predeterminado</option>
+			<option value="#193A33">color 1</option>
+			<option value="#612F7F">color 2</option>
+			<option value="#61AF7F">color 3</option>
+		</select>
+	</form>
+</body>
+</html>

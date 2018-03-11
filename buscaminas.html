@@ -1,0 +1,101 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charste="utf-8">		
+		<style>
+			
+		</style>
+		<script>
+			var ArregloImagenes=new Array();
+			function Bombas(){
+				var i;
+				var numero;
+				for(i=0;i<16;i++){
+					ArregloImagenes[i]="bueno.jpg";
+				}
+				for(i=0;i<4;i++){
+					do{
+						numero=Math.floor(Math.random()*10);
+					}while(ArregloImagenes[numero]!="bueno.jpg")
+						ArregloImagenes[numero]="bomba.jpg";
+						
+				}
+				
+			}
+		function comprobar(obj){
+				obj.src=ArregloImagenes[obj.id];
+				if(ArregloImagenes[obj.id]=="bomba.jpg"){
+					alert("¡¡¡¡Haz perdido!!!!");
+					//reiniciar();
+					Bombas();
+					
+				}else{
+				}
+			}
+			
+		function crear(){
+	
+				var f=document.getElementsByName("valor")[0].value;
+				var c=document.getElementsByName("valor")[0].value;
+				tablanueva=document.createElement("table");
+				tablanueva.setAttribute("id","tablanueva");
+
+				tablanueva.setAttribute("border","1px");
+				tablanueva.align="center";
+				
+				for (var i=0 ; i< f; i++) {
+					tr=document.createElement("tr");
+
+					for(j=0;j<c;j++){
+						td=document.createElement("td");
+						
+						img=document.createElement("img");
+						img.setAttribute("src","vista.jpg");
+						img.setAttribute("name","a");
+						img.setAttribute("onclick","comprobar(this)")
+						img.setAttribute("id",j);
+						td.appendChild(img);
+						tr.appendChild(td);
+					}
+					tablanueva.appendChild(tr);
+
+				}
+				document.body.appendChild(tablanueva);
+			}
+		function reiniciar(){
+			document.body.innerHTML = "";
+			formulario();
+
+		}
+			
+			function formulario(){
+				var boton = document.createElement("button");
+				boton.type = "button";
+				boton.setAttribute("id","demo");
+				boton.setAttribute("onclick","crear()")
+				document.body.appendChild(boton);
+				document.getElementById("demo").innerHTML = "Crear";
+
+				var input=document.createElement("input");
+				input.type="text";
+				input.setAttribute("name","valor");
+				document.body.appendChild(input);
+
+				var boton2 = document.createElement("button");
+				boton2.type = "button";
+				boton2.setAttribute("id","s");
+				boton2.setAttribute("onclick","reiniciar()")
+				document.body.appendChild(boton2);
+				document.getElementById("s").innerHTML = "Reiniciar";
+			}
+		</script>
+	</head>
+	<body onload="Bombas(); formulario()" >
+	
+	</body>
+
+	<script>
+		
+	</script>
+	
+</html>

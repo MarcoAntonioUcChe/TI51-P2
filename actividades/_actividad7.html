@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="map"></div>
+	<script>
+		
+		var sucursal=[{"nombre":"sd","posicion":"20.123123,-213123213"},
+					  {"nombre":"sd","posicion":"20.123123,-213123213"}];
+
+		var cafeteria=[{"nombre":"sd","posicion":"20.123123,-213123213"},
+					  {"nombre":"sd","posicion":"20.123123,-213123213"}];
+
+		var marcadores=[];
+		var mapa=null;
+
+		function initMap(){
+		 map=new google.maps.Map(document.getElementById("map"),{
+					zoom:12,
+					center:{lat:-33.890,lng:151.274}
+			});
+		 		//Agregar los hipervinculos para el control de los marcadores del mapa
+		 		var link1=document.createElement("a");
+		 		link1.href="#";
+		 		link1.textContent="Sucursales";
+		 		link1.addEventListener("click" function(){
+		 			eliminar();
+		 			for(x=0; x=sucursal.length){
+		 			var dir=sucursal[x].posicion.split(",");
+		 			var latln=new google.maps.LatLng(dir[0].dir[1]);
+		 			addMarker(latln);
+		 		}
+		 		});
+
+		 		var link2=document.createElement("a");
+		 		link2.href="#";
+		 		link2.textContent="Cafeterias";
+		 		link2.addEventListener("click" function(){
+		 			eliminar();
+		 			for(x=0; x=cafeteria.length){
+		 			var dir=sucursal[x].posicion.split(",");
+		 			var latln=new google.maps.LatLng(dir[0].dir[1]);
+		 			addMarker(latln);
+		 		}
+		 		});
+
+		 		var link3=document.createElement("a");
+		 		link3.href="#";
+		 		link3.textContent="Todos";
+		 		link3.addEventListener("click" function(){
+		 			eliminar();
+		 			cafeteria.concat(sucursal);
+		 			for(x=0; x=cafeteria.length){
+		 			var dir=sucursal[x].posicion.split(",");
+		 			var latln=new google.maps.LatLng(dir[0].dir[1]);
+		 			addMarker(latln);
+		 		}
+		 		});
+
+		 		var content=document.getElementById("botones");
+				 	content.append(link1);
+				 	content.append(link2);
+		}
+
+		//Crear una función para agregar marcadores
+		function addMarker(direccion){
+			//var dir=direccion.split(',');
+			var image='http://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+					var mark=new google.maps.Maker({
+					position:direccion,
+					map:map,
+					icon:image,
+					animation: google.maps.Animation.DROP
+				});
+					mark.addListener('click'function(e){
+						this.setMap(null);
+						
+					});
+					marcadores.push(mark);
+
+		}
+
+		function eliminar(){
+			for(x=0;x<marcadores.length;x++){
+				marcadores[x].setMap(null);
+				//marcadores[x].shift(x,1);
+			}
+		}
+		
+	</script>
+	<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyD_k3HMBqaJCf0VqJJYaT8RXf4BiPI8SMg&sensor=flase&callback=initMap"></script>
+	<div id="botones"></div>
+</body>
+</html>

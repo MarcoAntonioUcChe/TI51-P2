@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		function eliminar(obj){
+
+			var eliminar=obj.parentNode;
+			eliminar.parentNode.removeChild(eliminar);
+
+		}
+
+		function crear(){
+			var id=document.getElementById("div");
+			var parrafo=document.createElement("input");
+			parrafo.setAttribute("type","file");
+
+			var e=document.createElement("button");
+			e.setAttribute("onclick",'eliminar(this)');
+			id.appendChild(parrafo);
+			id.appendChild(e);
+		}
+
+		
+	</script>
+</head>
+<body >
+	Upload File(s)
+	<div id="div">
+		
+	</div>
+	<button onclick="crear()">Add File</button>
+	<button onclick="eliminar()">Eliminar nodo</button>
+
+	<p id="provisional"></p>
+</body>
+</html>

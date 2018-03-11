@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Ejercicio 1</title>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		body{
+	margin:0px;
+}
+
+	.cuadrado{
+		border: 1px solid #000;
+		width: 254px;
+		height: 254px;
+	}
+	</style>
+	<script>
+		function obtenerPosicion(e){
+	x= e.clientX;
+	y= e.clientY;
+	console.log(parseInt(x,10));
+	color1=parseInt(x,10).toString(16,4).toUpperCase();
+	color2=parseInt(y,10).toString(16,4).toUpperCase();
+
+	if (color1.length==2 && color2.length==2) {
+		
+	}else if (color1.length==1 && color2.length==1){
+		color1="0"+color1;
+		color2="0"+color2;
+	}else if (color1.length==1 && color2.length==2){
+		color1="0"+color1;
+	}else if (color1.length==2 && color2.length==1){
+		color2="0"+color2;
+	}else{
+		
+	}
+
+	cursor= "El cursor del mouse esta: "+color1+" - "+color2+" y provoca el color: #"+color1+color2+"FF";
+	document.getElementById("displayArea").innerHTML=cursor;
+	var div = document.getElementById("cuadrado");
+
+	div.style.background="#"+color1+color2+"FF";
+}
+
+function detener(){
+	document.getElementById("displayArea").innerHTML="";
+}
+	</script>
+</head>
+<body>
+	<div id="cuadrado" onmousemove="obtenerPosicion(event)" onmouseout="detener()" class="cuadrado">
+		<p>Mueve el cursor encima del texto</p>
+	</div>
+	<div id="displayArea"></div>
+</body>
+</html>
